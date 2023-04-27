@@ -1,9 +1,17 @@
+with open('hello.txt', 'r') as file:
+    def tail(filename, n):
+        if n <= 0:
+            print("Некоректна кількість рядків для виведення")
+            return
 
-
-filename = "hello.txt"
-search_word = input("Введіть слово для пошуку: ")
-
-with open(filename, "r") as file:
-    for line in file:
-        if search_word in line:
-            print(line)
+        with open(filename, 'r') as file:
+            lines = file.readlines()
+            if len(lines) < 3:
+                print("Весь файл:")
+                print(''.join(lines))
+            else:
+                print(f"Останні {3} рядки: ")
+                for line in lines[-3:]:
+                    print(line, end='')
+                    print('')
+    tail("hello.txt", 3)
