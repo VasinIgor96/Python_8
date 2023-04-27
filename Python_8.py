@@ -1,9 +1,5 @@
-
-
-filename = "hello.txt"
-search_word = input("Введіть слово для пошуку: ")
-
-with open(filename, "r") as file:
+with open('hello.txt', 'r') as file:
     for line in file:
-        if search_word in line:
-            print(line)
+        for word in line.split():
+            if word.isdigit():
+                print(word)
