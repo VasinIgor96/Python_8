@@ -1,9 +1,11 @@
+while True:
+    with open('hello.txt', 'r') as f:
+        lines = f.readlines()
+        for i, line in enumerate(lines):
+            print(f"{i}: {line.strip()}")
+        line_number_to_delete = int(input("Enter line number to delete: "))
+        del lines[line_number_to_delete]
 
-
-filename = "hello.txt"
-search_word = input("Введіть слово для пошуку: ")
-
-with open(filename, "r") as file:
-    for line in file:
-        if search_word in line:
-            print(line)
+    with open('hello.txt', 'w') as f:
+        
+        f.writelines(lines)
