@@ -1,9 +1,13 @@
-
-
-filename = "hello.txt"
-search_word = input("Введіть слово для пошуку: ")
-
-with open(filename, "r") as file:
-    for line in file:
-        if search_word in line:
-            print(line)
+with open('hello.txt', 'r+') as file:
+    content = file.read()
+    print(f'Вміст файлу до змін: {content}')
+    lines = content.split('\n')
+    sorted_lines = sorted(lines)  
+    new_content = '\n'.join(sorted_lines)
+    print(f'Зміни у файлі: {new_content}')
+    file.seek(0)
+    file.write(new_content)
+    file.truncate() 
+    file.seek(0)
+    updated_content = file.read()
+    print(f'Вміст файлу після змін: {updated_content}')
