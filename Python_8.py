@@ -1,9 +1,10 @@
 
-
-filename = "hello.txt"
-search_word = input("Введіть слово для пошуку: ")
-
-with open(filename, "r") as file:
-    for line in file:
-        if search_word in line:
-            print(line)
+with open('hello.txt', 'r') as file:
+    content = file.read()
+    lines = content.split('\n')
+    unique_lines = set(lines)
+    
+    if len(lines) == len(unique_lines):
+        print('Файл не містить дублікатів! ')
+    else:
+        print('Файл містить дублікати! ')
